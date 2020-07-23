@@ -12,21 +12,21 @@
     <div id="app"></div>
     <script type="text/babel">
 
-    const Compras = () => {
-      const [contador, setContador] = React.useState(0);
+      const Compras = () => {
+        const [contador, setContador] = React.useState(0);
 
-      function comprar() {
-        setContador(contador + 1);
+        function comprar() {
+          setContador(contador + 1);
+        }
+
+        return (
+          <div>
+            <button onClick={comprar}>Comprar</button>
+            <p>Total: {contador} </p>
+            <p>Preço: R$ {contador * 250}</p>
+          </div>
+        )
       }
-
-      return (
-        <div>
-          <button onClick={comprar}>Comprar</button>
-          <p>Total: {contador} </p>
-          <p>Preço: R$ {contador * 250}</p>
-        </div>
-      )
-    }
 
       const Button = () => {
         function handleClick(event) {
