@@ -1,20 +1,14 @@
 import React from 'react'
-import Input from './Input'
 import Button from './Button'
+import Input from './Input'
 
 const Form = () => {
   return (
-    <form action="">
-      <p>
-        <label htmlFor="nome">Nome</label>
-        <Input />
-      </p>
-      <p>
-        <label htmlFor="email">Email</label>
-        <Input />
-      </p>
+    <div>
+      <Input id="email" label="Email" required/>
+      <Input id="password" label="Password" type="password"/>
       <Button />
-    </form>
+    </div>
   )
 }
 
