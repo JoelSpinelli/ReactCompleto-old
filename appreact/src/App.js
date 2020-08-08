@@ -1,10 +1,16 @@
 import React from 'react';
-import Form from './Form/Form';
+import ButtonModal from './ButtonModal';
+import Modal from './Modal';
 
 const App = () => {
+  const [modal, setModal] = React.useState(false)
+
+
   return (
     <div>
-      <Form />
+      <div>{modal ? 'modal aberto': 'modal Fechado'}</div>
+      <Modal modal={modal} setModal={setModal} />
+      <ButtonModal setModal={setModal} />
     </div>
   );
 }
