@@ -1,16 +1,26 @@
 import React from 'react'
-import Produto from './Produto';
 
 const App = () => {
-  const [ativo, setAtivo] = React.useState(false);
+  const [carrinho, setCarrinho] = React.useState(0);
+  const [notificacao, setNotificacao] = React.useState(null)
+  const timeoutRef = React.useRef();
+
+  function handleClick() {
+    setCarrinho(carrinho + 1);
+    setNotificacao('Item adicionado ao carrinho');
+
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setNotificacao(null)
+    }, 2000);
+  }
 
   return (
     <div>
-      {ativo && <Produto />}
-      <button onClick={() => setAtivo(!ativo)}>Ativar</button>
+      <p>{notificacao}</p>
+      <button onClick={handleClick}>Adicionar Carrinho { carrinho }</button>
     </div>
-  );
+  )
 }
 
 export default App
-
