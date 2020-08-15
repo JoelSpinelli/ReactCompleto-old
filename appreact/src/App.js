@@ -1,20 +1,16 @@
-import React, {useState} from 'react'
+import React from 'react'
+import Produto from './Produto';
 
 const App = () => {
-  const [contar, setContar] = React.useState(1);
-  const [items, setItems] = React.useState(['Item 1']);
-
-  function handleClick() {
-    setContar((contar) => contar + 1);
-    setItems((items) => [...items, 'Item ' + (contar + 1)])
-  }
+  const [ativo, setAtivo] = React.useState(false);
 
   return (
     <div>
-      {items.map(item => <li key={item}>{item}</li>)}
-      <button onClick={handleClick}>{contar}</button>
+      {ativo && <Produto />}
+      <button onClick={() => setAtivo(!ativo)}>Ativar</button>
     </div>
-  )
+  );
 }
 
 export default App
+
